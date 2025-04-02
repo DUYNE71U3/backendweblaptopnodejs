@@ -5,7 +5,10 @@ require('dotenv').config();
 
 const categoryRoutes = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
-const authRoutes = require('./routes/authRoutes'); // Thêm authRoutes
+const authRoutes = require('./routes/authRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const vnpayRoutes = require('./routes/vnpayRoutes'); // Thêm vnpayRoutes
 const path = require('path');
 
 const app = express();
@@ -13,7 +16,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 const cors = require('cors');
-app.use(cors());
+app.use(cors()); // Cho phép tất cả các origin
 
 // Middleware phục vụ file tĩnh
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -21,7 +24,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Routes
 app.use('/api/categories', categoryRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/auth', authRoutes); // Thêm route cho auth
+app.use('/api/auth', authRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/vnpay', vnpayRoutes); // Thêm route cho vnpay
 
 // Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI, {

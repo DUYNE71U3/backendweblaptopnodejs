@@ -17,6 +17,7 @@ const productSchema = new mongoose.Schema({
     dimensions: { type: String, required: false },
     battery: { type: String, required: false },
     warranty: { type: String, required: false },
+    image: { type: String }, // Thêm trường image
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

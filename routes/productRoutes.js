@@ -10,6 +10,9 @@ router.get('/', productController.getAllProducts);
 // Lấy một sản phẩm theo ID (công khai)
 router.get('/:id', productController.getProductById);
 
+// Lấy sản phẩm theo category (công khai)
+router.get('/category/:categoryId', productController.getProductsByCategory);
+
 // Thêm sản phẩm (chỉ admin, kèm upload file)
 router.post('/', authenticate, authorizeAdmin, upload.single('image'), productController.createProduct);
 
