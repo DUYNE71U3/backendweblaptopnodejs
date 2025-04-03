@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     role: { type: String, enum: ['user', 'admin'], default: 'user' },
     cart: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }] // Thêm trường cart
+    // walletBalance: { type: Number, default: 0 } // Remove wallet balance
 }, { timestamps: true });
 
 // Mã hóa mật khẩu trước khi lưu

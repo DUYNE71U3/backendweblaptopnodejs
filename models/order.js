@@ -11,7 +11,7 @@ const orderSchema = new mongoose.Schema({
         phone: { type: String, required: true },
         email: { type: String, required: true }
     },
-    paymentMethod: { type: String, enum: ['COD', 'VNPAY', 'Wallet'], required: true }, // Add Wallet
+    paymentMethod: { type: String, enum: ['COD', 'VNPAY'], required: true }, // Remove Wallet
     totalPrice: { type: Number, required: true },
     status: { type: String, enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'], default: 'Pending' },
     createdAt: { type: Date, default: Date.now }

@@ -8,7 +8,7 @@ const productRoutes = require('./routes/productRoutes');
 const authRoutes = require('./routes/authRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
-const vnpayRoutes = require('./routes/vnpayRoutes'); // Thêm vnpayRoutes
+// const vnpayRoutes = require('./routes/vnpayRoutes'); // Remove vnpayRoutes
 const path = require('path');
 
 const app = express();
@@ -27,7 +27,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
-app.use('/api/vnpay', vnpayRoutes); // Thêm route cho vnpay
+// app.use('/api/vnpay', vnpayRoutes); // Remove route cho vnpay
 
 // Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI, {
